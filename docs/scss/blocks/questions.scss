@@ -1,0 +1,143 @@
+.questions {
+	position: relative;
+	padding: 80px 0px;
+	background-color: $yel;
+	z-index: 0;
+	overflow: hidden;
+	@include to(992px) {
+		padding: 100px 0 60px 0;
+	}
+	&::before {
+		content: "";
+		width: 660px;
+		height: 660px;
+		position: absolute;
+		top: -50px;
+		left: -200px;
+		background: url($imgPath + "questions/stars-1.svg") center center / cover no-repeat;
+		z-index: -1;
+		@include to(992px) {
+			left: -400px;
+		}
+	}
+	&::after {
+		content: "";
+		width: 560px;
+		height: 560px;
+		position: absolute;
+		top: -250px;
+		right: 150px;
+		background: url($imgPath + "questions/stars-2.svg") center center / cover no-repeat;
+		z-index: -1;
+		@include to(992px) {
+			width: 440px;
+			height: 440px;
+			right: -150px;
+			top: -150px;
+		}
+		@include to(576px) {
+			right: -200px;
+		}
+	}
+	&__wrap {
+		@include wrap;
+		display: flex;
+		flex-flow: row nowrap;
+		@include to(1200px) {
+			justify-content: space-between;
+		}
+		@include to(768px) {
+			flex-flow: column nowrap;
+			justify-content: initial;
+		}
+	}
+	&__title {
+		width: 100%;
+		max-width: 450px;
+		font-weight: 900;
+		font-size: 90px;
+		line-height: 103.7%;
+		color: #ffffff;
+		margin-right: 90px;
+		@include to(1200px) {
+			font-size: 85px;
+			margin-right: 0;
+		}
+		@include to(992px) {
+			font-size: 75px;
+			margin-right: 30px;
+			max-width: 380px;
+		}
+		@include to(768px) {
+			text-align: center;
+			font-size: 55px;
+			max-width: unset;
+		}
+		@include to(576px) {
+			text-align: left;
+			max-width: 350px;
+		}
+	}
+	&__form {
+		display: flex;
+		flex-flow: column nowrap;
+		width: 100%;
+		max-width: 400px;
+		@include to(768px) {
+			align-items: center;
+			justify-content: center;
+			margin: 30px auto 0 auto;
+		}
+		@include to(576px) {
+			align-items: initial;
+			justify-content: initial;
+		}
+		&-text {
+			margin-bottom: 25px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 115.2%;
+			color: #ffffff;
+			@include to(992px) {
+				margin-bottom: 20px;
+				font-size: 14px;
+			}
+			@include to(768px) {
+				text-align: center;
+			}
+			@include to(576px) {
+				text-align: left;
+			}
+		}
+		&-input {
+			width: 100%;
+			height: 50px;
+			margin-bottom: 20px;
+			max-width: 350px;
+			@include to(768px) {
+				max-width: unset;
+			}
+			input {
+				border: none;
+				width: 100%;
+				height: 100%;
+				background-color: #ffffff;
+				border-radius: 5px;
+				padding: 15px;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 115.2%;
+				color: $dark;
+				&::placeholder {
+					color: #a0a0a0;
+				}
+			}
+		}
+	}
+	&__btn {
+		@include btn;
+		@include to(576px) {
+			margin: 0 auto;
+		}
+	}
+}

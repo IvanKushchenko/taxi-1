@@ -1,0 +1,239 @@
+.promo {
+	padding-top: 100px;
+	background-color: $yel;
+	position: relative;
+	z-index: 1;
+	@include to(1200px) {
+		padding-top: 75px;
+	}
+	@include to(992px) {
+		padding-top: 50px;
+	}
+	@include to(576px) {
+		padding-top: 25px;
+	}
+	&::after {
+		content: "";
+		width: 1045px;
+		height: 1045px;
+		position: absolute;
+		top: -100px;
+		left: -200px;
+		background: url($imgPath + "promo/promo-star-left.svg") center center / contain no-repeat;
+		z-index: -1;
+		@include to(1750px) {
+			left: -225px;
+		}
+		@include to(1440px) {
+			left: -250px;
+		}
+		@include to(992px) {
+			display: none;
+		}
+	}
+	&__block {
+		@include wrap;
+		display: flex;
+		flex-flow: column nowrap;
+	}
+	&__descr {
+		display: flex;
+		flex-flow: column nowrap;
+		width: 100%;
+		max-width: 750px;
+		z-index: 2;
+		@include to(992px) {
+			max-width: 550px;
+		}
+		@include to(576px) {
+			max-width: 300px;
+		}
+	}
+	&__title {
+		font-weight: 900;
+		font-size: 95px;
+		line-height: 120.7%;
+		color: #ffffff;
+		@include to(992px) {
+			font-size: 65px;
+		}
+		@include to(576px) {
+			font-size: 40px;
+		}
+		@include to(375px) {
+			font-size: 38px;
+		}
+		span {
+			font-weight: 500;
+			font-size: 85px;
+			line-height: 120.7%;
+			color: #ffffff;
+			@include to(992px) {
+				font-size: 55px;
+			}
+			@include to(576px) {
+				font-size: 34px;
+			}
+			@include to(375px) {
+				font-size: 30px;
+			}
+		}
+	}
+	&__btn {
+		margin-top: 35px;
+		@include btn;
+		@include to(992px) {
+			margin-top: 25px;
+		}
+	}
+	&__img {
+		position: absolute;
+		top: 100px;
+		right: 0;
+		z-index: 1;
+		padding-right: 3%;
+		@include to(1750px) {
+			padding-right: 30px;
+			right: -90px;
+		}
+		@include to(1440px) {
+			padding-right: 0;
+			right: -200px;
+		}
+		@include to(1300px) {
+			margin-left: auto;
+			transform: translateX(30px);
+			right: unset;
+			top: unset;
+			position: relative;
+		}
+		&::before {
+			content: "";
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 15px;
+			left: 50px;
+			background: url($imgPath + "promo/promo-car-star-1.svg") center center / cover no-repeat;
+			z-index: -1;
+			@include to(992px) {
+				width: 230px;
+				height: 230px;
+				top: 30px;
+				left: -30px;
+			}
+			@include to(576px) {
+				top: -30px;
+			}
+		}
+		&::after {
+			content: "";
+			width: 688px;
+			height: 688px;
+			position: absolute;
+			top: -200px;
+			right: -100px;
+			background: url($imgPath + "promo/promo-car-star-2.svg") center center / cover no-repeat;
+			z-index: -2;
+			@include to(1750px) {
+				right: -125px;
+			}
+			@include to(992px) {
+				top: -120px;
+				right: -40px;
+				width: 350px;
+				height: 350px;
+				background: url($imgPath + "promo/promo-car-star-2-mob.svg") center center / cover no-repeat;
+			}
+			@include to(576px) {
+				right: -80px;
+			}
+		}
+		picture {
+			display: block;
+		}
+		img {
+			display: block;
+		}
+		&-front {
+			img {
+				@include to(768px) {
+					width: 620px;
+					height: 400px;
+				}
+				@include to(576px) {
+					width: unset;
+					height: unset;
+				}
+			}
+		}
+		&-back {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: -1;
+			img {
+				@include to(768px) {
+					width: 350px;
+					height: 150px;
+				}
+				@include to(576px) {
+					width: unset;
+					height: unset;
+				}
+			}
+		}
+	}
+	&__labels {
+		width: 100%;
+		max-width: 1140px;
+		margin: 130px auto 0 auto;
+		padding: 0 20px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		@include to(1440px) {
+			margin-top: 125px;
+		}
+		@include to(1200px) {
+			margin-top: 100px;
+		}
+		@include to(1100px) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 30px;
+		}
+		@include to(992px) {
+			margin-top: 75px;
+		}
+		@include to(768px) {
+			margin-top: 50px;
+		}
+		@include to(576px) {
+			margin-top: 30px;
+			grid-template-columns: 1fr;
+		}
+	}
+	&__label {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		&-header {
+			font-weight: 900;
+			font-size: 85px;
+			line-height: 120.7%;
+			@include textColor;
+			@include to(992px) {
+				font-size: 60px;
+			}
+		}
+		&-subheader {
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 120.7%;
+			color: #ffffff;
+			@include to(992px) {
+				font-size: 16px;
+			}
+		}
+	}
+}

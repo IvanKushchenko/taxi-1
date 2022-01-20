@@ -1,0 +1,227 @@
+.rates {
+	padding-top: 80px;
+	padding-bottom: 10px;
+	background-color: $yel;
+	position: relative;
+	z-index: 1;
+	@include to(1440px) {
+		overflow: hidden;
+	}
+	&::after {
+		content: "";
+		width: 830px;
+		height: 830px;
+		background: url($imgPath + "rates/star-1.svg") center center / cover no-repeat;
+		position: absolute;
+		top: 80px;
+		left: -20px;
+		z-index: -1;
+		@include to(1440px) {
+			height: 400px;
+			width: 400px;
+			top: 340px;
+			left: -90px;
+		}
+	}
+	&::before {
+		content: "";
+		width: 550px;
+		height: 550px;
+		background: url($imgPath + "rates/star-2.svg") center center / cover no-repeat;
+		position: absolute;
+		top: -10px;
+		right: 30px;
+		z-index: -1;
+		@include to(1440px) {
+			top: -100px;
+			right: -200px;
+		}
+		@include to(576px) {
+			top: -50px;
+			right: -250px;
+		}
+	}
+	@include to(992px) {
+		padding-top: 60px;
+	}
+	&__wrap {
+		@include wrap;
+		@include to(992px) {
+			padding: 0;
+		}
+	}
+	&__title {
+		text-align: center;
+		font-weight: 900;
+		font-size: 40px;
+		line-height: 120.7%;
+		color: #ffffff;
+		@include to(992px) {
+			font-size: 30px;
+			padding: 0 20px;
+		}
+	}
+	&__table {
+		display: block;
+		height: 100%;
+		width: 100%;
+		border-spacing: unset;
+		@include to(400px) {
+			width: 400px;
+		}
+		&-wrap {
+			max-height: 470px;
+			margin-top: 50px;
+			overflow-y: auto;
+			@include to(992px) {
+				overflow: auto;
+				margin-top: 45px;
+			}
+		}
+		tr {
+			&:first-child {
+				background-color: #272727 !important;
+				th {
+					&:first-child {
+						border-radius: 30px 0 0px 0px;
+					}
+					&:last-child {
+						border-radius: 0 30px 0px 0px;
+					}
+				}
+			}
+			&:nth-child(even) {
+				background-color: #fff;
+			}
+			&:nth-child(odd) {
+				background-color: #fafafa;
+			}
+			th {
+				text-align: left;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 115.2%;
+				color: #faed00;
+				padding: 30px 5px;
+				@include to(1440px) {
+					font-size: 13px;
+				}
+				@include to(1200px) {
+					font-size: 12px;
+				}
+				@include to(992px) {
+					font-size: 11px;
+				}
+				@include to(768px) {
+					font-size: 10px;
+				}
+				@include to(576px) {
+					font-size: 9px;
+				}
+			}
+			td {
+				padding: 20px 5px;
+				font-weight: bold;
+				font-size: 14px;
+				line-height: 100%;
+				color: #393939;
+				@include to(1200px) {
+					font-size: 13px;
+				}
+				@include to(992px) {
+					font-size: 12px;
+				}
+				@include to(768px) {
+					font-size: 11px;
+				}
+				@include to(576px) {
+					font-size: 10px;
+				}
+				&:first-child {
+					font-weight: 500;
+					font-size: 12px;
+					line-height: 115.2%;
+					color: #393939;
+					@include to(1200px) {
+						font-size: 11px;
+					}
+					@include to(992px) {
+						font-size: 10px;
+					}
+				}
+			}
+			td,
+			th {
+				width: 13%;
+				&:first-child {
+					padding-left: 60px;
+					width: 21%;
+					@include to(1440px) {
+						padding-left: 55px;
+					}
+					@include to(1200px) {
+						padding-left: 50px;
+					}
+					@include to(992px) {
+						padding-left: 45px;
+					}
+					@include to(768px) {
+						padding-left: 40px;
+					}
+					@include to(576px) {
+						padding-left: 30px;
+					}
+				}
+			}
+		}
+	}
+	&__btn {
+		position: relative;
+		margin: 0 auto;
+		transform: translateY(-8px);
+		@include btn;
+		@include to(400px) {
+			max-width: calc(100% - 40px);
+		}
+		&-wrap {
+			position: relative;
+			margin: 0 auto;
+			z-index: 1;
+			&::before {
+				content: "";
+				background-color: #ffffff;
+				border-radius: 0px 0px 40px 40px;
+				width: calc(320px + 16px);
+				height: calc(60px + 4px);
+				position: absolute;
+				left: 50%;
+				bottom: -4px;
+				transform: translateX(-50%);
+				z-index: -1;
+				@include to(400px) {
+					width: 100%;
+					max-width: calc(100% - 40px + 16px);
+				}
+			}
+		}
+	}
+	&__bg {
+		display: block;
+		position: absolute;
+		right: 100%;
+		transform: translateX(100%);
+		bottom: -170px;
+		@include to(1850px) {
+			transform: translateX(85%);
+		}
+		@include to(1700px) {
+			transform: translateX(75%);
+		}
+		@include to(1550px) {
+			transform: translateX(65%);
+		}
+		@include to(1440px) {
+			display: none;
+		}
+	}
+}

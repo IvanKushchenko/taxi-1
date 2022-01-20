@@ -1,0 +1,111 @@
+.advantages {
+	margin-top: 70px;
+	background: url($imgPath + "advantages/advantage-bg.png") center center / cover no-repeat;
+	@include to(992px) {
+		background: url($imgPath + "advantages/advantage-bg-mob.png") center center / cover no-repeat;
+		margin-top: 60px;
+	}
+	&__wrap {
+		@include wrap;
+		padding: 80px 30px;
+		@include to(992px) {
+			padding: 60px 30px;
+		}
+	}
+	&__title {
+		font-weight: 900;
+		font-size: 40px;
+		line-height: 120.7%;
+		color: #ffffff;
+		text-align: center;
+		@include to(992px) {
+			font-size: 30px;
+		}
+	}
+	&__slider {
+		&-btns {
+			display: none;
+			margin-top: 35px;
+			flex-flow: row nowrap;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			@include to(992px) {
+				display: flex;
+			}
+		}
+		@include sliderBtns;
+	}
+	&__item {
+		height: auto;
+		margin-top: 50px;
+		position: relative;
+		padding: 40px 30px 50px 30px;
+		display: flex;
+		flex-flow: column nowrap;
+		z-index: 1;
+		@include to(992px) {
+			padding: 35px 25px 45px 25px;
+			margin-top: 40px;
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+			background-color: #fff;
+			z-index: -1;
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 10px));
+			@include to(992px) {
+				clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 05px));
+			}
+		}
+		&-label {
+			position: absolute;
+			right: 30px;
+			top: -22px;
+			padding: 15px 25px;
+			background-color: #edb810;
+			box-shadow: 0px 4px 20px rgba(250, 237, 0, 0.5);
+			border-radius: 100px;
+			font-weight: 900;
+			font-size: 10px;
+			line-height: 120.7%;
+			color: #ffffff;
+			@include to(992px) {
+				right: 15px;
+			}
+		}
+		&-title {
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 120.7%;
+			color: #272727;
+			@include to(992px) {
+				font-size: 14px;
+			}
+		}
+		&-text {
+			margin-top: 15px;
+			display: flex;
+			flex-flow: column nowrap;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 115.2%;
+			color: #272727;
+			@include to(576px) {
+				font-size: 10px;
+			}
+			p {
+				&:not(:last-child) {
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}

@@ -25,9 +25,12 @@
 		font-size: 14px;
 		line-height: 13px;
 		color: #faed00;
+		transition: color 0.3s;
 		&:hover {
+			color: #edb810;
+			transition: color 0.3s;
 			span {
-				color: #faed00;
+				color: #edb810;
 				transition: color 0.3s;
 			}
 		}
@@ -62,14 +65,30 @@
 			justify-content: center;
 		}
 		a {
+			position: relative;
 			font-weight: bold;
 			font-size: 14px;
 			line-height: 13px;
 			color: #ffffff;
 			transition: color 0.3s;
 			&:hover {
-				color: #faed00;
+				color: #edb810;
 				transition: color 0.3s;
+				&::after {
+					width: calc(100% - 20px);
+					transition: width 0.3s;
+				}
+			}
+			&::after {
+				content: "";
+				height: 2px;
+				width: 0px;
+				border-bottom: 2px dashed #edb810;
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				transition: width 0.3s;
 			}
 			&:not(:last-child) {
 				margin-right: 40px;
@@ -98,7 +117,7 @@
 			margin-top: 40px;
 		}
 		&:hover {
-			color: $dark;
+			color: #edb810;
 			transition: color 0.3s;
 		}
 		img {

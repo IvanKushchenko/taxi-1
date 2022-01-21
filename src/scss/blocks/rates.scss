@@ -70,6 +70,7 @@
 			width: 400px;
 		}
 		&-wrap {
+			border-radius: 30px;
 			max-height: 470px;
 			margin-top: 50px;
 			overflow-y: auto;
@@ -80,15 +81,9 @@
 		}
 		tr {
 			&:first-child {
+				position: sticky;
+				top: 0;
 				background-color: #272727 !important;
-				th {
-					&:first-child {
-						border-radius: 30px 0 0px 0px;
-					}
-					&:last-child {
-						border-radius: 0 30px 0px 0px;
-					}
-				}
 			}
 			&:nth-child(even) {
 				background-color: #fff;

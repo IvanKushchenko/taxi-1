@@ -22,16 +22,22 @@ window.addEventListener("DOMContentLoaded", () => {
 	const body = document.body;
 	//Header
 	const header = document.querySelector(".header");
-	const headerBtn = document.querySelector(".header__menu-btn");
+	const headerOpenBtn = document.querySelector(".header__menu-btn");
+	const headerCloseBtn = document.querySelector(".header__menu-close");
 
-	headerBtn.addEventListener("click", () => {
-		body.classList.toggle("blocked-scroll");
-		header.classList.toggle("header--opened");
+	headerOpenBtn.addEventListener("click", () => {
+		body.classList.add("blocked-scroll");
+		header.classList.add("header--opened");
+	});
+
+	headerCloseBtn.addEventListener("click", () => {
+		body.classList.remove("blocked-scroll");
+		header.classList.remove("header--opened");
 	});
 
 	header.addEventListener("click", (event) => {
 		if (header.classList.contains("header--opened")) {
-			if (event.target.tagName.toLowerCase() === "a") {
+			if (event.target.tagName.toLowerCase() === "a" || event.target.classList.contains("header__overlay")) {
 				body.classList.remove("blocked-scroll");
 				header.classList.remove("header--opened");
 			}

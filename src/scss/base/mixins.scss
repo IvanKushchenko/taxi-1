@@ -27,6 +27,17 @@
 	min-width: 320px;
 	background-color: #181818;
 	border-radius: 30px;
+	transition: background-color 0.3s;
+	&:hover {
+		background-color: #faed00;
+		transition: background-color 0.3s;
+		span {
+			&:nth-child(1) {
+				color: #181818;
+				transition: color 0.3s;
+			}
+		}
+	}
 	@include to(576px) {
 		min-width: unset;
 		width: 100%;
@@ -38,6 +49,7 @@
 		font-size: 16px;
 		line-height: 120.7%;
 		color: #ffffff;
+		transition: color 0.3s;
 	}
 	&-arr {
 		margin-left: auto;

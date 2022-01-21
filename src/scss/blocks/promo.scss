@@ -1,8 +1,12 @@
 .promo {
+	overflow: hidden;
 	padding-top: 100px;
 	background-color: $yel;
 	position: relative;
 	z-index: 1;
+	@include to(1300px) {
+		overflow: initial;
+	}
 	@include to(1200px) {
 		padding-top: 75px;
 	}
@@ -33,6 +37,7 @@
 	}
 	&__block {
 		@include wrap;
+		padding: 0;
 		display: flex;
 		flex-flow: column nowrap;
 	}
@@ -40,13 +45,14 @@
 		display: flex;
 		flex-flow: column nowrap;
 		width: 100%;
-		max-width: 750px;
+		max-width: 790px;
 		z-index: 2;
+		padding: 0 20px;
 		@include to(992px) {
-			max-width: 550px;
+			max-width: 590px;
 		}
 		@include to(576px) {
-			max-width: 300px;
+			max-width: 340px;
 		}
 	}
 	&__title {
@@ -102,7 +108,6 @@
 		}
 		@include to(1300px) {
 			margin-left: auto;
-			transform: translateX(30px);
 			right: unset;
 			top: unset;
 			position: relative;

@@ -53,6 +53,9 @@
 		}
 		@include to(576px) {
 			max-width: 340px;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto;
 		}
 	}
 	&__title {
@@ -65,6 +68,7 @@
 		}
 		@include to(576px) {
 			font-size: 40px;
+			text-align: center;
 		}
 		@include to(375px) {
 			font-size: 38px;

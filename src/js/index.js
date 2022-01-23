@@ -196,6 +196,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			modal.classList.add("order--successed");
 			setTimeout(() => {
 				modal.classList.remove("order--opened", "order--successed");
+				body.classList.remove("blocked-scroll");
 			}, 5000);
 			step = 0;
 			hideTabContent();
@@ -219,6 +220,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			// 		this.reset();
 			// setTimeout(() => {
 			// 	modal.classList.remove("order--opened", "order--successed");
+			// body.classList.remove("blocked-scroll");
 			// }, 5000);
 			// 	},
 			// });
@@ -383,6 +385,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		modal.classList.add("order--opened", "order--successed");
 		setTimeout(() => {
 			modal.classList.remove("order--opened", "order--successed");
+			body.classList.remove("blocked-scroll");
 		}, 5000);
 		this.reset();
 		// setTimeout(() => {
@@ -401,6 +404,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		// 		this.reset();
 		// 		setTimeout(() => {
 		//    modal.classList.remove("order--opened", "order--successed");
+		// body.classList.remove("blocked-scroll");
 		// 		}, 5000);
 		// 	},
 		// });

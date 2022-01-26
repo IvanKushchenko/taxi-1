@@ -227,6 +227,13 @@
 		line-height: 115.2%;
 		color: #ffffff;
 	}
+	&__sublabel {
+		margin-bottom: 10px;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 115.2%;
+		color: #ffffff;
+	}
 	&__price {
 		display: none;
 		margin: 15px 30px 15px 30px;
@@ -312,6 +319,11 @@
 			&--showed {
 				display: block;
 				animation: fadeInUp 0.3s;
+			}
+		}
+		&-amount {
+			.order__label {
+				margin-bottom: 3px;
 			}
 		}
 		&--opened {
@@ -406,6 +418,16 @@
 		@include btn;
 		margin: 15px auto 0 auto;
 		max-width: calc(100% - 60px);
+		&-back {
+			background-color: transparent;
+			border: 2px solid #181818;
+			.order__btn-text {
+				color: #181818;
+			}
+			.order__btn-arr {
+				background-color: #fff;
+			}
+		}
 		@include to(576px) {
 			max-width: 320px;
 		}
@@ -485,7 +507,8 @@
 		max-width: 300px;
 	}
 	&__error {
-		.order__label {
+		.order__label,
+		.order__sublabel {
 			color: red;
 		}
 	}

@@ -174,7 +174,8 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	const orderForm = modal.querySelector("form");
 	const orderTabs = document.querySelectorAll(".order__tab");
-	const orderBtn = document.querySelectorAll(".order__btn");
+	const orderBtn = document.querySelectorAll(".order__btn.order__btn-next");
+	const backOrderBtn = document.querySelectorAll(".order__btn.order__btn-back");
 	const orderInfo = {};
 	let isTypeChoosen = false;
 	let step = 0;
@@ -258,6 +259,15 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
+	backOrderBtn.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			step < 0 ? (step = 0) : --step;
+			hideTabContent();
+			showTabContent(step);
+			activeTab = orderTabs[step];
+		});
+	});
+
 	function formValidation(inputs) {
 		let numberOfErrors = 0;
 		inputs.forEach((input) => {
@@ -275,10 +285,12 @@ window.addEventListener("DOMContentLoaded", () => {
 							}
 						}
 					} else {
-						if (input.name === "amount-passengers") {
-							input.value
-								? input.parentNode.parentNode.classList.remove("order__error")
-								: input.parentNode.parentNode.classList.add("order__error") || numberOfErrors++;
+						if (input.type === "number") {
+							if (input.name === "number-adults") {
+								input.value
+									? input.parentNode.parentNode.classList.remove("order__error")
+									: input.parentNode.parentNode.classList.add("order__error") || numberOfErrors++;
+							}
 						} else {
 							input.value ? input.parentNode.classList.remove("order__error") : input.parentNode.classList.add("order__error") || numberOfErrors++;
 						}
@@ -360,21 +372,43 @@ window.addEventListener("DOMContentLoaded", () => {
 		$(this.parentElement).addClass("order__input--opened");
 	});
 
-	let passangersAmount = 1;
+	let adultCounter = 1;
+	let childrenCounter = 1;
+	let babiesCounter = 1;
 
-	$('input[type="number"]').on("change", function (e) {
-		passangersAmount = e.target.value;
-		$('input[type="number"]').attr({ value: e.target.value });
+	$('input[type="number"]').each(function (idx, input) {
+		$(input).on("change", function (e) {
+			if (input.name === "number-children") {
+				childrenCounter = e.target.value;
+			} else if (input.name === "number-babies") {
+				babiesCounter = e.target.value;
+			} else {
+				adultCounter = e.target.value;
+			}
+			$(input).attr({ value: e.target.value });
+		});
 	});
 
 	$(".order__input-plus").on("click", function () {
-		const input = $('input[type="number"]');
-		input[0].value ? (input[0].value = ++passangersAmount) : input.attr({ value: "1" });
+		const input = $(this.parentElement).find('input[type="number"]');
+		if (input[0].name === "number-children") {
+			input[0].value ? (input[0].value = ++childrenCounter) : input.attr({ value: "1" });
+		} else if (input[0].name === "number-babies") {
+			input[0].value ? (input[0].value = ++babiesCounter) : input.attr({ value: "1" });
+		} else {
+			input[0].value ? (input[0].value = ++adultCounter) : input.attr({ value: "1" });
+		}
 	});
 
 	$(".order__input-minus").on("click", function () {
-		const input = $('input[type="number"]');
-		input[0].value ? (input[0].value = passangersAmount === 1 ? 1 : --passangersAmount) : input.attr({ value: "1" });
+		const input = $(this.parentElement).find('input[type="number"]');
+		if (input[0].name === "number-children") {
+			input[0].value ? (input[0].value = childrenCounter === 1 ? 1 : --childrenCounter) : input.attr({ value: "1" });
+		} else if (input[0].name === "number-babies") {
+			input[0].value ? (input[0].value = babiesCounter === 1 ? 1 : --babiesCounter) : input.attr({ value: "1" });
+		} else {
+			input[0].value ? (input[0].value = adultCounter === 1 ? 1 : --adultCounter) : input.attr({ value: "1" });
+		}
 	});
 
 	// Questions form

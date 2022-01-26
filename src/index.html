@@ -424,7 +424,7 @@
 						<div class="questions__form-input">
 							<input type="tel" name="phone" placeholder="Ваш телефон" inputmode="tel" required />
 						</div>
-						<button class="questions__btn" data-modal="open-btn">
+						<button class="questions__btn">
 							<span class="questions__btn-text"> Заказать такси </span>
 							<span class="questions__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
 						</button>
@@ -533,7 +533,7 @@
 
 							<div class="order__footer">
 								<div class="order__steps">Осталось всего 2 шага, для заказа такси!</div>
-								<button class="order__btn" type="button">
+								<button class="order__btn order__btn-next" type="button">
 									<span class="order__btn-text"> Заказать такси </span>
 									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
 								</button>
@@ -552,11 +552,11 @@
 								</div>
 								<div class="order__input order__input-date">
 									<label for="arrival-date" class="order__label">Дата прибытия</label>
-									<input type="text" name="arrival-date" id="arrival-date" placeholder="Дата подачи такси" autocomplete="off" />
+									<input type="text" name="arrival-date" id="arrival-date" placeholder="Дата подачи такси" autocomplete="off" readonly />
 								</div>
 								<div class="order__input order__input-time">
 									<label for="arrival-time" class="order__label">Время прибытия</label>
-									<input type="text" name="arrival-time" id="arrival-time" placeholder="Время подачи такси" autocomplete="off" />
+									<input type="text" name="arrival-time" id="arrival-time" placeholder="Время подачи такси" autocomplete="off" readonly />
 								</div>
 								<div class="order__input order__input-flight">
 									<label for="flight-number" class="order__label">Номер Вашего рейса</label>
@@ -566,7 +566,11 @@
 							</div>
 							<div class="order__footer">
 								<div class="order__steps">Осталось всего 1 шаг, для заказа такси!</div>
-								<button class="order__btn" type="button">
+								<button class="order__btn order__btn-back" type="button">
+									<span class="order__btn-text"> Вернутся к шагу 1 </span>
+									<span class="order__btn-arr"><img src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" loading="lazy" /></span>
+								</button>
+								<button class="order__btn order__btn-next" type="button">
 									<span class="order__btn-text"> Заказать такси </span>
 									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
 								</button>
@@ -578,15 +582,27 @@
 							</div>
 							<div class="order__fields">
 								<div class="order__input">
-									<label for="amount-passengers" class="order__label">Количество пассажиров</label>
+									<label for="number-adults" class="order__label">Взрослые</label>
 									<div class="order__input-counter">
-										<input
-											type="number"
-											inputmode="numeric"
-											name="amount-passengers"
-											id="amount-passengers"
-											placeholder="Количество пассажиров"
-											min="1" />
+										<input type="number" inputmode="numeric" name="number-adults" id="number-adults" placeholder="Колличество взрослых" min="1" />
+										<button type="button" class="order__input-plus"></button>
+										<button type="button" class="order__input-minus"></button>
+									</div>
+								</div>
+								<div class="order__input order__input-amount">
+									<label for="number-children" class="order__label">Дети</label>
+									<p class="order__sublabel">младше 12 лет</p>
+									<div class="order__input-counter">
+										<input type="number" inputmode="numeric" name="number-children" id="number-children" placeholder="Колличество детей" min="1" />
+										<button type="button" class="order__input-plus"></button>
+										<button type="button" class="order__input-minus"></button>
+									</div>
+								</div>
+								<div class="order__input order__input-amount">
+									<label for="number-babies" class="order__label">Младенцы</label>
+									<p class="order__sublabel">младше 1 года</p>
+									<div class="order__input-counter">
+										<input type="number" inputmode="numeric" name="number-babies" id="number-babies" placeholder="Колличество младенцев" min="1" />
 										<button type="button" class="order__input-plus"></button>
 										<button type="button" class="order__input-minus"></button>
 									</div>
@@ -599,11 +615,11 @@
 								<div class="order__back-subblock">
 									<div class="order__input order__input-date">
 										<label for="arrival-date-back" class="order__label">Дата подачи такси</label>
-										<input type="text" name="arrival-date-back" id="arrival-date-back" placeholder="Дата подачи такси" autocomplete="off" />
+										<input type="text" name="arrival-date-back" id="arrival-date-back" placeholder="Дата подачи такси" autocomplete="off" readonly />
 									</div>
 									<div class="order__input order__input-time">
 										<label for="arrival-time-back" class="order__label">Время подачи такси</label>
-										<input type="text" name="arrival-time-back" id="arrival-time-back" placeholder="Время подачи такси" autocomplete="off" />
+										<input type="text" name="arrival-time-back" id="arrival-time-back" placeholder="Время подачи такси" autocomplete="off" readonly />
 									</div>
 									<div class="order__textarea">
 										<div class="order__label">Комментарий к заказу</div>
@@ -618,6 +634,10 @@
 							</div>
 							<div class="order__footer">
 								<div class="order__steps">Все данные заполнены, осталось нажать кнопку!</div>
+								<button class="order__btn order__btn-back" type="button">
+									<span class="order__btn-text"> Вернутся к шагу 2 </span>
+									<span class="order__btn-arr"><img src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" loading="lazy" /></span>
+								</button>
 								<button class="order__btn">
 									<span class="order__btn-text"> Заказать такси </span>
 									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>

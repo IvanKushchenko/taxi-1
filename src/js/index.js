@@ -381,7 +381,6 @@ window.addEventListener("DOMContentLoaded", () => {
 		$(el).datetimepicker({
 			datepicker: false,
 			format: "H:i",
-			minTime: 0,
 			step: 10,
 			onClose: function () {
 				$($(".order__input-time input")[i].parentElement).removeClass("order__input--opened");

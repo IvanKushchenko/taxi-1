@@ -374,6 +374,15 @@ window.addEventListener("DOMContentLoaded", () => {
 			onClose: function () {
 				$($(".order__input-date input")[i].parentElement).removeClass("order__input--opened");
 			},
+			onSelectDate: function (ct, $i) {
+				const now = new Date();
+				const date = `${now.getDate()}.0${now.getMonth() + 1}.${now.getFullYear()}`;
+				if ($i.val() !== date) {
+					$($(".order__input-time input")[i]).datetimepicker({ minTime: "00:00" });
+				} else {
+					$($(".order__input-time input")[i]).datetimepicker({ minTime: 0 });
+				}
+			},
 		});
 	});
 
@@ -381,6 +390,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		$(el).datetimepicker({
 			datepicker: false,
 			format: "H:i",
+			minTime: 0,
 			step: 10,
 			onClose: function () {
 				$($(".order__input-time input")[i].parentElement).removeClass("order__input--opened");

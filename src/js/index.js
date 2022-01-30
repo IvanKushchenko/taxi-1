@@ -376,7 +376,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			},
 			onSelectDate: function (ct, $i) {
 				const now = new Date();
-				const date = `${now.getDate()}.0${now.getMonth() + 1}.${now.getFullYear()}`;
+				const date = `${now.getDate()}.${now.getMonth() >= 10 ? now.getMonth() : `0${now.getMonth() + 1}`}.${now.getFullYear()}`;
 				if ($i.val() !== date) {
 					$($(".order__input-time input")[i]).datetimepicker({ minTime: "00:00" });
 				} else {

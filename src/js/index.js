@@ -360,7 +360,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	const phoneFields = document.querySelectorAll("input[type='tel']");
 	phoneFields.forEach((input) => {
 		IMask(input, {
-			mask: "+{7}(000)000-00-00",
+			mask: "+{7} (000) 000-00-00",
 		});
 	});
 

@@ -133,7 +133,7 @@
 	}
 	&__item {
 		overflow: hidden;
-		min-height: 260px;
+		min-height: 300px;
 		padding: 25px;
 		position: relative;
 		display: flex;
@@ -163,10 +163,21 @@
 			color: #272727;
 		}
 		&-subtitle {
+			width: 100%;
+			max-width: 100px;
 			margin-top: 10px;
 			font-weight: normal;
 			font-size: 12px;
 			line-height: 11px;
+			color: #393939;
+		}
+		&-text {
+			width: 100%;
+			max-width: 200px;
+			margin-top: 10px;
+			font-weight: normal;
+			font-size: 12px;
+			line-height: 14px;
 			color: #393939;
 		}
 		&-img {

@@ -232,7 +232,7 @@
 		&-flight {
 			display: none;
 			&--showed {
-				display: block;
+				display: flex;
 				animation: fadeInUp 0.3s;
 			}
 		}

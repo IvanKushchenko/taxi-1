@@ -51,7 +51,10 @@
 			line-height: 100%;
 			color: #ffffff;
 			position: relative;
+			transition: all 0.3s;
 			&:hover {
+				color: #383838;
+				transition: all 0.3s;
 				&::after {
 					width: calc(100% - 20px);
 					transition: width 0.3s;

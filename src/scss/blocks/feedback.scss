@@ -26,6 +26,17 @@
 			font-size: 30px;
 		}
 	}
+	&__subtitle {
+		text-align: center;
+		margin-top: 15px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 120.7%;
+		color: #ffffff;
+		@include to(992px) {
+			margin-top: 10px;
+		}
+	}
 	&__slider {
 		&-controls {
 			margin-top: 40px;
@@ -112,7 +123,7 @@
 		img {
 			display: block;
 			@include to(375px) {
-				max-width: 310px;
+				max-width: 100%;
 			}
 		}
 	}

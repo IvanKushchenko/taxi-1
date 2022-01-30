@@ -15,6 +15,8 @@ Swiper.use([Navigation, Pagination]);
 
 import IMask from "imask";
 
+import "lazysizes";
+
 import "../scss/style.scss";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -50,6 +52,14 @@ window.addEventListener("DOMContentLoaded", () => {
 				body.classList.remove("blocked-scroll");
 				header.classList.remove("header--opened");
 			}
+		}
+	});
+
+	window.addEventListener("scroll", () => {
+		if (window.scrollY !== 0) {
+			header.style.borderBottom = "1px solid #fff";
+		} else {
+			header.style.borderBottom = "";
 		}
 	});
 
@@ -149,30 +159,32 @@ window.addEventListener("DOMContentLoaded", () => {
 		},
 	});
 
-	// Order modal
+	// Success modal
+	const successModal = document.querySelector('[data-success="block"]');
 
-	//Opening modal
-
-	const modalOpenBtn = document.querySelectorAll('[data-modal="open-btn"]');
-	const modal = document.querySelector('[data-modal="block"]');
-
-	modalOpenBtn.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			modal.classList.add("order--opened");
-			body.classList.add("blocked-scroll");
-		});
-	});
-
-	modal.addEventListener("click", (event) => {
-		if (event.target && event.target.classList.contains("order__overlay")) {
-			modal.classList.remove("order--opened");
+	successModal.addEventListener("click", (event) => {
+		if (event.target && event.target.classList.contains("success__overlay")) {
+			successModal.classList.remove("success--opened");
 			body.classList.remove("blocked-scroll");
 		}
 	});
 
+	// Order modal
+
+	//Opening modal
+
+	const orderAnchorsBtns = document.querySelectorAll('[data-modal="open-btn"]');
+	const order = document.querySelector('[data-modal="block"]');
+
+	orderAnchorsBtns.forEach((btn) => {
+		btn.addEventListener("click", () => {
+			order.scrollIntoView();
+		});
+	});
+
 	// Form listener
 
-	const orderForm = modal.querySelector("form");
+	const orderForm = order.querySelector("form");
 	const orderTabs = document.querySelectorAll(".order__tab");
 	const orderBtn = document.querySelectorAll(".order__btn.order__btn-next");
 	const backOrderBtn = document.querySelectorAll(".order__btn.order__btn-back");
@@ -194,9 +206,10 @@ window.addEventListener("DOMContentLoaded", () => {
 					orderInfo[input.name] = input.value;
 				}
 			});
-			modal.classList.add("order--successed");
+			successModal.classList.add("success--opened");
+			body.classList.add("blocked-scroll");
 			setTimeout(() => {
-				modal.classList.remove("order--opened", "order--successed");
+				successModal.classList.remove("success--opened");
 				body.classList.remove("blocked-scroll");
 			}, 5000);
 			step = 0;
@@ -206,6 +219,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			$(".order__select-destination select").val(null).trigger("change");
 			$(".order__select-departure select").val(null).trigger("change");
 			$(".order__select-type select").val(null).trigger("change");
+			$(".order__select-class select").val(null).trigger("change");
 			$('input[type="number"]').attr({ value: 1 });
 			activeTab = orderTabs[0];
 			// $.ajax({
@@ -217,11 +231,12 @@ window.addEventListener("DOMContentLoaded", () => {
 			// 		alert("При обработки формы произошла ошибка. Попробуйте еще раз!");
 			// 	},
 			// 	success: function () {
-			// 		modal.classList.add("order--successed");
 			// 		this.reset();
+			// successModal.classList.add("success--opened");
+			// body.classList.add('blocked-scroll')
 			// setTimeout(() => {
-			// 	modal.classList.remove("order--opened", "order--successed");
-			// body.classList.remove("blocked-scroll");
+			// 	successModal.classList.remove("success--opened");
+			//   body.classList.remove('blocked-scroll')
 			// }, 5000);
 			// 	},
 			// });
@@ -313,10 +328,16 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 
+	$(".order__select-class select").select2();
+	$(".order__select-class select").on("select2:select", function () {
+		$(".order__select-class select").attr({ "data-selected": "true" });
+	});
+
 	$(".order__select-destination select").select2();
 	$(".order__select-destination select").on("select2:select", function () {
 		$(".order__select-destination select").attr({ "data-selected": "true" });
 	});
+
 	$(".order__select-departure select").select2();
 	$(".order__select-departure select").on("select2:select", function () {
 		$(".order__select-departure select").attr({ "data-selected": "true" });
@@ -416,9 +437,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	questionsForm.addEventListener("submit", function (event) {
 		event.preventDefault();
-		modal.classList.add("order--opened", "order--successed");
+		successModal.classList.add("success--opened");
+		body.classList.add("blocked-scroll");
 		setTimeout(() => {
-			modal.classList.remove("order--opened", "order--successed");
+			successModal.classList.remove("success--opened");
 			body.classList.remove("blocked-scroll");
 		}, 5000);
 		this.reset();
@@ -434,13 +456,25 @@ window.addEventListener("DOMContentLoaded", () => {
 		// 		alert("При обработки формы произошла ошибка. Попробуйте еще раз!");
 		// 	},
 		// 	success: function () {
-		// 		modal.classList.add("order--successed");
 		// 		this.reset();
-		// 		setTimeout(() => {
-		//    modal.classList.remove("order--opened", "order--successed");
-		// body.classList.remove("blocked-scroll");
-		// 		}, 5000);
+		// successModal.classList.add("success--opened");
+		// body.classList.add('blocked-scroll')
+		// setTimeout(() => {
+		//   successModal.classList.remove("success--opened");
+		//   body.classList.remove('blocked-scroll')
+		// }, 5000);
 		// 	},
 		// });
+	});
+
+	// faq btns
+	const faqBlocks = document.querySelectorAll(".faq__item");
+
+	faqBlocks.forEach((item) => {
+		item.addEventListener("click", (event) => {
+			if (event.target && event.target.classList.contains("faq__btn")) {
+				item.classList.toggle("faq__item--opened");
+			}
+		});
 	});
 });

@@ -104,6 +104,10 @@
 			}
 		}
 	}
+	&__contacts {
+		display: flex;
+		flex-flow: column nowrap;
+	}
 	&__call {
 		display: flex;
 		flex-flow: row nowrap;
@@ -125,6 +129,17 @@
 			flex: 0 0 20px;
 			height: 20px;
 			margin-right: 10px;
+		}
+	}
+	&__addr {
+		margin-top: 10px;
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 115.2%;
+		text-align: right;
+		color: #a3a3a3;
+		@include to(992px) {
+			text-align: center;
 		}
 	}
 }

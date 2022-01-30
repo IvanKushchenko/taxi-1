@@ -61,6 +61,17 @@
 			padding: 0 20px;
 		}
 	}
+	&__subtitle {
+		text-align: center;
+		margin-top: 15px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 120.7%;
+		color: #ffffff;
+		@include to(992px) {
+			margin-top: 10px;
+		}
+	}
 	&__table {
 		display: block;
 		height: 100%;
@@ -187,15 +198,16 @@
 				background-color: #ffffff;
 				border-radius: 0px 0px 40px 40px;
 				width: calc(320px + 16px);
-				height: calc(60px + 4px);
+				height: calc(60px + 6px);
 				position: absolute;
 				left: 50%;
-				bottom: -4px;
+				bottom: -3px;
 				transform: translateX(-50%);
 				z-index: -1;
 				@include to(400px) {
 					width: 100%;
 					max-width: calc(100% - 40px + 16px);
+					height: calc(60px + 10px);
 				}
 			}
 		}

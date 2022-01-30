@@ -41,8 +41,8 @@
 					<a href="#feedback">Отзывы</a>
 				</nav>
 				<a href="tel:+79787777272" class="header__call">
-					<img src="./img/icons/call-icon-light.png" alt="call-icon" loading="lazy" />
-					<img class="header__call-mob" src="./img/icons/call-icon-light-mob.png" alt="call-icon" loading="lazy" />
+					<img class="lazyload" data-src="./img/icons/call-icon-light.png" alt="call-icon" />
+					<img class="header__call-mob" src="./img/icons/call-icon-light-mob.png" alt="call-icon" />
 					<span>+7(978) 653 59 37</span>
 				</a>
 				<button class="header__menu-btn">
@@ -97,8 +97,9 @@
 							</svg>
 						</a>
 					</nav>
+					<img data-src="./img/header/banner.svg" alt="banner-image" class="header__banner lazyload" />
 					<a href="tel:+79787777272" class="header__call">
-						<img src="./img/icons/call-icon-yel.png" alt="call-icon" loading="lazy" />
+						<img class="lazyload" data-src="./img/icons/call-icon-yel.png" alt="call-icon" />
 						<span>+7(978) 653 59 37</span>
 					</a>
 					<div class="header__menu-descr">
@@ -114,19 +115,18 @@
 				<div class="promo__block">
 					<div class="promo__descr">
 						<h1 class="promo__title">Официальное<span> такси аэропорта </span>Симферополь</h1>
-						<button class="promo__btn" data-modal="open-btn">
-							<span class="promo__btn-text"> Заказать такси </span>
-							<span class="promo__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
-						</button>
+						<p class="promo__subtitle">
+							Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас анализа форм развития
+						</p>
 					</div>
 					<div class="promo__img">
 						<picture class="promo__img-front">
-							<source srcset="./img/promo/promo-front-mob.png" media="(max-width: 576px)" />
-							<img src="./img/promo/promo-front.png" alt="promo-front-img" loading="lazy" />
+							<source data-srcset="./img/promo/promo-front-mob.png" media="(max-width: 576px)" />
+							<img class="lazyload" data-src="./img/promo/promo-front.png" alt="promo-front-img" />
 						</picture>
 						<picture class="promo__img-back">
-							<source srcset="./img/promo/promo-back-mob.png" media="(max-width: 576px)" />
-							<img src="./img/promo/promo-back.png" alt="promo-back-img" loading="lazy" />
+							<source data-srcset="./img/promo/promo-back-mob.png" media="(max-width: 576px)" />
+							<img class="lazyload" data-src="./img/promo/promo-back.png" alt="promo-back-img" />
 						</picture>
 					</div>
 				</div>
@@ -149,9 +149,180 @@
 					</div>
 				</div>
 			</section>
+			<section class="order" data-modal="block">
+				<form class="order__form">
+					<div class="order__tabs">
+						<div class="order__tab">
+							<div class="order__header">
+								<h2 class="order__title">Место назначения</h2>
+							</div>
+							<div class="order__fields">
+								<div class="order__select order__select-class">
+									<label for="trip-class" class="order__label">Класс такси</label>
+									<select name="trip-class" id="trip-class" autocomplete="off" data-selected="false">
+										<option value="Выберите класс такси" disabled selected>Выберите класс такси</option>
+										<option value="Стандарт">Стандарт</option>
+										<option value="Универсал">Универсал</option>
+										<option value="Комфорт+">Комфорт+</option>
+										<option value="Бизнес">Бизнес</option>
+										<option value="Минивэн">Минивэн</option>
+									</select>
+								</div>
+								<div class="order__select order__select-type">
+									<label for="trip-type" class="order__label">Вид поездки</label>
+									<select name="trip-type" id="trip-type" autocomplete="off" data-selected="false">
+										<option value="Выберите наименование" disabled selected>Выберите наименование</option>
+										<option value="Межгород">Межгород</option>
+										<option value="Аеропорт">Аеропорт</option>
+										<option value="Ж/д вокзал">Ж/д вокзал</option>
+									</select>
+								</div>
+								<div class="order__select order__select-destination">
+									<label for="destination" class="order__label">Место назначения</label>
+									<select name="destination" id="destination" autocomplete="off" data-selected="false">
+										<option value="Выберите или введите название" disabled selected>Выберите или введите название</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+								<div class="order__select order__select-departure">
+									<label for="departure" class="order__label">Место отправления</label>
+									<select name="departure" id="departure" autocomplete="off" data-selected="false">
+										<option value="Выберите или введите название" disabled selected>Выберите или введите название</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</div>
+							</div>
+							<div class="order__footer">
+								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
+								<div class="order__steps">Осталось всего 2 шага, для заказа такси!</div>
+								<div class="order__btns">
+									<button class="order__btn order__btn-next" type="button">
+										<span class="order__btn-text"> Заказать такси </span>
+										<span class="order__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="order__tab">
+							<div class="order__header"><h2 class="order__title">Ваши Контакты</h2></div>
+							<div class="order__fields">
+								<div class="order__input">
+									<label for="phone" class="order__label">Номер телефона</label>
+									<input type="tel" name="phone" id="phone" placeholder="+7-(___)-___-__-__" inputmode="tel" />
+								</div>
+								<div class="order__input">
+									<label for="name" class="order__label">Ваше имя</label>
+									<input type="text" name="name" id="name" placeholder="Введите ваше имя" />
+								</div>
+								<div class="order__input order__input-date">
+									<label for="arrival-date" class="order__label">Дата прибытия</label>
+									<input type="text" name="arrival-date" id="arrival-date" placeholder="Дата подачи такси" autocomplete="off" readonly />
+								</div>
+								<div class="order__input order__input-time">
+									<label for="arrival-time" class="order__label">Время прибытия</label>
+									<input type="text" name="arrival-time" id="arrival-time" placeholder="Время подачи такси" autocomplete="off" readonly />
+								</div>
+								<div class="order__input order__input-flight">
+									<label for="flight-number" class="order__label">Номер Вашего рейса</label>
+									<input type="text" name="flight-number" id="flight-number" placeholder="Номер рейса" autocomplete="off" />
+								</div>
+							</div>
+							<div class="order__footer">
+								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
+								<div class="order__steps">Осталось всего 1 шаг, для заказа такси!</div>
+								<div class="order__btns">
+									<button class="order__btn order__btn-back" type="button">
+										<span class="order__btn-text"> Вернутся к шагу 1 </span>
+										<span class="order__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" /></span>
+									</button>
+									<button class="order__btn order__btn-next" type="button">
+										<span class="order__btn-text"> Заказать такси </span>
+										<span class="order__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
+									</button>
+								</div>
+							</div>
+						</div>
+						<div class="order__tab">
+							<div class="order__header">
+								<h2 class="order__title">Дополнительно</h2>
+							</div>
+							<div class="order__fields">
+								<div class="order__input">
+									<label for="number-adults" class="order__label">Взрослые</label>
+									<div class="order__input-counter">
+										<input type="number" inputmode="numeric" name="number-adults" id="number-adults" placeholder="Колличество взрослых" min="1" />
+										<button type="button" class="order__input-plus"></button>
+										<button type="button" class="order__input-minus"></button>
+									</div>
+								</div>
+								<div class="order__input order__input-amount">
+									<label for="number-children" class="order__label">Дети</label>
+									<p class="order__sublabel">младше 12 лет</p>
+									<div class="order__input-counter">
+										<input type="number" inputmode="numeric" name="number-children" id="number-children" placeholder="Колличество детей" min="1" />
+										<button type="button" class="order__input-plus"></button>
+										<button type="button" class="order__input-minus"></button>
+									</div>
+								</div>
+								<div class="order__input order__input-amount">
+									<label for="number-babies" class="order__label">Младенцы</label>
+									<p class="order__sublabel">младше 1 года</p>
+									<div class="order__input-counter">
+										<input type="number" inputmode="numeric" name="number-babies" id="number-babies" placeholder="Колличество младенцев" min="1" />
+										<button type="button" class="order__input-plus"></button>
+										<button type="button" class="order__input-minus"></button>
+									</div>
+								</div>
+								<label class="order__back">
+									<span>Обратный трансфер</span>
+									<input type="checkbox" name="back" id="back" value="back" />
+									<span class="order__back-checkmark"></span>
+								</label>
+								<div class="order__back-subblock">
+									<div class="order__input order__input-date">
+										<label for="arrival-date-back" class="order__label">Дата подачи такси</label>
+										<input type="text" name="arrival-date-back" id="arrival-date-back" placeholder="Дата подачи такси" autocomplete="off" readonly />
+									</div>
+									<div class="order__input order__input-time">
+										<label for="arrival-time-back" class="order__label">Время подачи такси</label>
+										<input type="text" name="arrival-time-back" id="arrival-time-back" placeholder="Время подачи такси" autocomplete="off" readonly />
+									</div>
+									<div class="order__textarea">
+										<div class="order__label">Комментарий к заказу</div>
+										<textarea
+											name="comments"
+											id="comments"
+											placeholder="Ваши комментарии и пожелания: Детское кресло, встреча с табличкой..."
+											autocomplete="off"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="order__footer">
+								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
+								<div class="order__steps">Все данные заполнены, осталось нажать кнопку!</div>
+								<div class="order__btns">
+									<button class="order__btn order__btn-back" type="button">
+										<span class="order__btn-text"> Вернутся к шагу 2 </span>
+										<span class="order__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" /></span>
+									</button>
+									<button class="order__btn">
+										<span class="order__btn-text"> Заказать такси </span>
+										<span class="order__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</section>
 			<section class="advantages" id="advantages">
 				<div class="advantages__wrap">
 					<h2 class="advantages__title">Почему стоит заказать такси у нас?</h2>
+					<p class="advantages__subtitle">Преимущества нашего такси</p>
 					<div class="advantages__slider-wrap">
 						<div class="advantages__slider swiper">
 							<div class="swiper-wrapper">
@@ -204,9 +375,47 @@
 					</div>
 				</div>
 			</section>
+			<section class="text" id="text">
+				<div class="text__wrap">
+					<h2 class="text__title">Официальное такси аэропорта Симферополь</h2>
+					<ol>
+						<li>
+							Значимость этих проблем настолько очевидна, что рамки и место обучения кадров способствует подготовки и реализации направлений
+							прогрессивного развития.
+						</li>
+						<li>
+							Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас анализа форм развития. Идейные
+							соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании
+							дальнейших направлений развития.
+						</li>
+						<li>
+							Товарищи! начало повседневной работы по формированию позиции способствует подготовки и реализации форм развития. Идейные соображения
+							высшего порядка, а также консультация с широким активом позволяет оценить значение позиций, занимаемых участниками в отношении
+							поставленных задач. Товарищи! дальнейшее развитие различных форм деятельности требуют определения и уточнения систем массового участия.
+						</li>
+					</ol>
+					<ul>
+						<li>
+							Значимость этих проблем настолько очевидна, что рамки и место обучения кадров способствует подготовки и реализации направлений
+							прогрессивного развития.
+						</li>
+						<li>
+							Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас анализа форм развития. Идейные
+							соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании
+							дальнейших направлений развития.
+						</li>
+						<li>
+							Товарищи! начало повседневной работы по формированию позиции способствует подготовки и реализации форм развития. Идейные соображения
+							высшего порядка, а также консультация с широким активом позволяет оценить значение позиций, занимаемых участниками в отношении
+							поставленных задач. Товарищи! дальнейшее развитие различных форм деятельности требуют определения и уточнения систем массового участия.
+						</li>
+					</ul>
+				</div>
+			</section>
 			<section class="rates" id="rates">
 				<div class="rates__wrap">
 					<h2 class="rates__title">Тарифы из Симферополя по Крымуы</h2>
+					<p class="rates__subtitle">Стоимость такси из Симферополя по Крыму</p>
 					<div class="rates__table-wrap">
 						<table class="rates__table">
 							<tr>
@@ -278,48 +487,61 @@
 					<div class="rates__btn-wrap">
 						<button class="rates__btn" data-modal="open-btn">
 							<span class="rates__btn-text"> Заказать такси </span>
-							<span class="rates__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
+							<span class="rates__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
 						</button>
 					</div>
-					<img src="./img/rates/rates-car.png" alt="rates-car" loading="lazy" class="rates__bg" />
+					<picture class="rates__bg">
+						<img class="lazyload" data-src="./img/rates/rates-car.png" alt="rates-car" />
+					</picture>
 				</div>
 			</section>
 			<section class="types" id="types">
 				<div class="types__wrap">
 					<h2 class="types__title">Классы такси</h2>
+					<p class="types__subtitle">Подадим машину за 10 минут</p>
 					<div class="types__slider-wrap">
 						<div class="types__slider swiper">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide types__item">
 									<div class="types__item-title">Стандарт</div>
 									<div class="types__item-subtitle">VW Polo, Kia RIO</div>
-									<img src="./img/type/standart.png" alt="standart-image" class="types__item-img" loading="lazy" />
+									<picture class="types__item-img">
+										<img class="lazyload" data-src="./img/type/standart.png" alt="standart-image" />
+									</picture>
 								</div>
 								<div class="swiper-slide types__item">
 									<div class="types__item-title">Универсал</div>
 									<div class="types__item-subtitle">Lacetti, Octavia, Cruze, Passat</div>
-									<img src="./img/type/universal.png" alt="universal-image" class="types__item-img" loading="lazy" />
+									<picture class="types__item-img">
+										<img class="lazyload" data-src="./img/type/universal.png" alt="universal-image" />
+									</picture>
 								</div>
 								<div class="swiper-slide types__item">
 									<div class="types__item-title">Комфорт+</div>
 									<div class="types__item-subtitle">Skoda Octvia, Chevrolet Cruze</div>
-									<img src="./img/type/comfort.png" alt="comfort-image" class="types__item-img" loading="lazy" />
+									<picture class="types__item-img">
+										<img class="lazyload" data-src="./img/type/comfort.png" alt="comfort-image" />
+									</picture>
 								</div>
 								<div class="swiper-slide types__item">
 									<div class="types__item-title">Бизнес</div>
 									<div class="types__item-subtitle">Toyota Camry, Skoda Superb</div>
-									<img src="./img/type/business.png" alt="business-image" class="types__item-img" loading="lazy" />
+									<picture class="types__item-img">
+										<img class="lazyload" data-src="./img/type/business.png" alt="business-image" />
+									</picture>
 								</div>
 								<div class="swiper-slide types__item">
 									<div class="types__item-title">Минивэн</div>
 									<div class="types__item-subtitle">Hyundai Starex, Mercedes Vito</div>
-									<img src="./img/type/minivan.png" alt="minivan-image" class="types__item-img" loading="lazy" />
+									<picture class="types__item-img">
+										<img class="lazyload" data-src="./img/type/minivan.png" alt="minivan-image" />
+									</picture>
 								</div>
 							</div>
 						</div>
 						<button class="types__btn" data-modal="open-btn">
 							<span class="types__btn-text"> Забронировать </span>
-							<span class="types__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
+							<span class="types__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
 						</button>
 						<div class="types__slider-controls">
 							<button class="types__slider-prev">
@@ -344,6 +566,7 @@
 			<section class="feedback" id="feedback">
 				<div class="feedback__wrap">
 					<h2 class="feedback__title">Отзывы наших клиентов</h2>
+					<p class="feedback__subtitle">Почитайте отзывы людей вопользовавшихся нашим такси</p>
 					<div class="feedback__slider-wrap">
 						<div class="feedback__slider swiper">
 							<div class="swiper-wrapper">
@@ -351,11 +574,11 @@
 									<div class="feedback__item-label">Тариф Бизнес</div>
 									<div class="feedback__item-name">Мария</div>
 									<div class="feedback__item-rating">
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
 									</div>
 									<p class="feedback__item-text">
 										Хорошее такси, всегда чистые ухоженные машины и водители адекватные, что сегодня не часто встретишь
@@ -365,10 +588,10 @@
 									<div class="feedback__item-label">Тариф Комфорт+</div>
 									<div class="feedback__item-name">Александр</div>
 									<div class="feedback__item-rating">
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
 									</div>
 									<p class="feedback__item-text">
 										Заказывали здесь такси в Севастополь, поездка понравилась: недорого, вовремя и водитель адекватный. Спасибо!
@@ -378,11 +601,11 @@
 									<div class="feedback__item-label">Тариф Универсал</div>
 									<div class="feedback__item-name">Дмитрий</div>
 									<div class="feedback__item-rating">
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
-										<img src="./img/icons/star-icon.png" alt="star-icon" loading="lazy" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
+										<img class="lazyload" data-src="./img/icons/star-icon.png" alt="star-icon" />
 									</div>
 									<p class="feedback__item-text">
 										Хорошее такси, всегда чистые ухоженные машины и водители адекватные, что сегодня не часто встретишь
@@ -408,8 +631,8 @@
 						</div>
 					</div>
 					<picture class="feedback__bg">
-						<source srcset="./img/feedback/feedback-car-mob.png" media="(max-width: 576px)" />
-						<img src="./img/feedback/feedback-car.png" alt="feedback-car" loading="lazy" />
+						<source data-srcset="./img/feedback/feedback-car-mob.png" media="(max-width: 576px)" />
+						<img class="lazyload" data-src="./img/feedback/feedback-car.png" alt="feedback-car" />
 					</picture>
 				</div>
 			</section>
@@ -426,235 +649,90 @@
 						</div>
 						<button class="questions__btn">
 							<span class="questions__btn-text"> Заказать такси </span>
-							<span class="questions__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
+							<span class="questions__btn-arr"><img class="lazyload" data-src="./img/icons/arrow-btn.svg" alt="arrow-icon" /></span>
 						</button>
 					</form>
 				</div>
 			</section>
-			<section class="text" id="text">
-				<div class="text__wrap">
-					<h2 class="text__title">Официальное такси аэропорта Симферополь</h2>
-					<ol>
-						<li>
-							Значимость этих проблем настолько очевидна, что рамки и место обучения кадров способствует подготовки и реализации направлений
-							прогрессивного развития.
-						</li>
-						<li>
-							Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас анализа форм развития. Идейные
-							соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании
-							дальнейших направлений развития.
-						</li>
-						<li>
-							Товарищи! начало повседневной работы по формированию позиции способствует подготовки и реализации форм развития. Идейные соображения
-							высшего порядка, а также консультация с широким активом позволяет оценить значение позиций, занимаемых участниками в отношении
-							поставленных задач. Товарищи! дальнейшее развитие различных форм деятельности требуют определения и уточнения систем массового участия.
-						</li>
-					</ol>
-					<ul>
-						<li>
-							Значимость этих проблем настолько очевидна, что рамки и место обучения кадров способствует подготовки и реализации направлений
-							прогрессивного развития.
-						</li>
-						<li>
-							Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требуют от нас анализа форм развития. Идейные
-							соображения высшего порядка, а также консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании
-							дальнейших направлений развития.
-						</li>
-						<li>
-							Товарищи! начало повседневной работы по формированию позиции способствует подготовки и реализации форм развития. Идейные соображения
-							высшего порядка, а также консультация с широким активом позволяет оценить значение позиций, занимаемых участниками в отношении
-							поставленных задач. Товарищи! дальнейшее развитие различных форм деятельности требуют определения и уточнения систем массового участия.
-						</li>
-					</ul>
+			<section class="faq">
+				<div class="faq__wrap">
+					<div class="faq__item">
+						<button class="faq__btn">
+							<span>Как найти и заказать такси из аэропорта Симферополь?</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="1" y1="10" x2="19" y2="10" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+								<line x1="10" y1="19" x2="10" y2="1" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+						<p class="faq__subblock">
+							За сутки и за 12 часов до поездки с Вами свяжется водитель и сообщит марку автомобиля, цвет, государственный номер и скажет как его
+							найти, либо спросит куда к Вам подойти.
+						</p>
+					</div>
+					<div class="faq__item">
+						<button class="faq__btn">
+							<span>Как проверить что мой заказ принят?</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="1" y1="10" x2="19" y2="10" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+								<line x1="10" y1="19" x2="10" y2="1" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+						<p class="faq__subblock">
+							За сутки и за 12 часов до поездки с Вами свяжется водитель и сообщит марку автомобиля, цвет, государственный номер и скажет как его
+							найти, либо спросит куда к Вам подойти.
+						</p>
+					</div>
+					<div class="faq__item">
+						<button class="faq__btn">
+							<span>За какой срок до поездки можно сделать заказ?</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="1" y1="10" x2="19" y2="10" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+								<line x1="10" y1="19" x2="10" y2="1" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+						<p class="faq__subblock">
+							За сутки и за 12 часов до поездки с Вами свяжется водитель и сообщит марку автомобиля, цвет, государственный номер и скажет как его
+							найти, либо спросит куда к Вам подойти.
+						</p>
+					</div>
+					<div class="faq__item">
+						<button class="faq__btn">
+							<span>Как я найду своего водителя?</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="1" y1="10" x2="19" y2="10" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+								<line x1="10" y1="19" x2="10" y2="1" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+						<p class="faq__subblock">
+							За сутки и за 12 часов до поездки с Вами свяжется водитель и сообщит марку автомобиля, цвет, государственный номер и скажет как его
+							найти, либо спросит куда к Вам подойти.
+						</p>
+					</div>
+					<div class="faq__item">
+						<button class="faq__btn">
+							<span>Как я найду своего водителя?</span>
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="1" y1="10" x2="19" y2="10" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+								<line x1="10" y1="19" x2="10" y2="1" stroke="#272727" stroke-width="2" stroke-linecap="round" />
+							</svg>
+						</button>
+						<p class="faq__subblock">
+							За сутки и за 12 часов до поездки с Вами свяжется водитель и сообщит марку автомобиля, цвет, государственный номер и скажет как его
+							найти, либо спросит куда к Вам подойти.
+						</p>
+					</div>
 				</div>
 			</section>
-			<section class="order" data-modal="block">
-				<form class="order__form">
-					<div class="order__tabs">
-						<div class="order__tab">
-							<div class="order__header">
-								<h2 class="order__title">Место назначения</h2>
-								<div class="order__types">
-									<div class="order__label">Класс такси</div>
-									<div class="order__types-inputs">
-										<label class="order__types-radio">
-											<input type="radio" name="type" value="Стандарт" class="order__types-input" />
-											<span class="order__types-checkmark">Стандарт</span>
-										</label>
-										<label class="order__types-radio">
-											<input type="radio" name="type" value="Универсал" class="order__types-input" />
-											<span class="order__types-checkmark">Универсал</span>
-										</label>
-										<label class="order__types-radio">
-											<input type="radio" name="type" value="Комфорт+" class="order__types-input" />
-											<span class="order__types-checkmark">Комфорт+</span>
-										</label>
-										<label class="order__types-radio">
-											<input type="radio" name="type" value="Бизнес" class="order__types-input" />
-											<span class="order__types-checkmark">Бизнес</span>
-										</label>
-										<label class="order__types-radio">
-											<input type="radio" name="type" value="Минивэн" class="order__types-input" />
-											<span class="order__types-checkmark">Минивэн</span>
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="order__fileds">
-								<div class="order__select order__select-type">
-									<label for="trip-type" class="order__label">Вид поездки</label>
-									<select name="trip-type" id="trip-type" autocomplete="off" data-selected="false">
-										<option value="Выберите наименование" disabled selected>Выберите наименование</option>
-										<option value="Межгород">Межгород</option>
-										<option value="Аеропорт">Аеропорт</option>
-										<option value="Ж/д вокзал">Ж/д вокзал</option>
-									</select>
-								</div>
-								<div class="order__select order__select-destination">
-									<label for="destination" class="order__label">Место назначения</label>
-									<select name="destination" id="destination" autocomplete="off" data-selected="false">
-										<option value="Выберите или введите название" disabled selected>Выберите или введите название</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-									</select>
-								</div>
-								<div class="order__select order__select-departure">
-									<label for="departure" class="order__label">Место отправления</label>
-									<select name="departure" id="departure" autocomplete="off" data-selected="false">
-										<option value="Выберите или введите название" disabled selected>Выберите или введите название</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-									</select>
-								</div>
-								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
-							</div>
-
-							<div class="order__footer">
-								<div class="order__steps">Осталось всего 2 шага, для заказа такси!</div>
-								<button class="order__btn order__btn-next" type="button">
-									<span class="order__btn-text"> Заказать такси </span>
-									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
-								</button>
-							</div>
-						</div>
-						<div class="order__tab">
-							<div class="order__header"><h2 class="order__title">Ваши Контакты</h2></div>
-							<div class="order__fields">
-								<div class="order__input">
-									<label for="phone" class="order__label">Номер телефона</label>
-									<input type="tel" name="phone" id="phone" placeholder="+7-(___)-___-__-__" inputmode="tel" />
-								</div>
-								<div class="order__input">
-									<label for="name" class="order__label">Ваше имя</label>
-									<input type="text" name="name" id="name" placeholder="Введите ваше имя" />
-								</div>
-								<div class="order__input order__input-date">
-									<label for="arrival-date" class="order__label">Дата прибытия</label>
-									<input type="text" name="arrival-date" id="arrival-date" placeholder="Дата подачи такси" autocomplete="off" readonly />
-								</div>
-								<div class="order__input order__input-time">
-									<label for="arrival-time" class="order__label">Время прибытия</label>
-									<input type="text" name="arrival-time" id="arrival-time" placeholder="Время подачи такси" autocomplete="off" readonly />
-								</div>
-								<div class="order__input order__input-flight">
-									<label for="flight-number" class="order__label">Номер Вашего рейса</label>
-									<input type="text" name="flight-number" id="flight-number" placeholder="Номер рейса" autocomplete="off" />
-								</div>
-								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
-							</div>
-							<div class="order__footer">
-								<div class="order__steps">Осталось всего 1 шаг, для заказа такси!</div>
-								<button class="order__btn order__btn-back" type="button">
-									<span class="order__btn-text"> Вернутся к шагу 1 </span>
-									<span class="order__btn-arr"><img src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" loading="lazy" /></span>
-								</button>
-								<button class="order__btn order__btn-next" type="button">
-									<span class="order__btn-text"> Заказать такси </span>
-									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
-								</button>
-							</div>
-						</div>
-						<div class="order__tab">
-							<div class="order__header">
-								<h2 class="order__title">Дополнительно</h2>
-							</div>
-							<div class="order__fields">
-								<div class="order__input">
-									<label for="number-adults" class="order__label">Взрослые</label>
-									<div class="order__input-counter">
-										<input type="number" inputmode="numeric" name="number-adults" id="number-adults" placeholder="Колличество взрослых" min="1" />
-										<button type="button" class="order__input-plus"></button>
-										<button type="button" class="order__input-minus"></button>
-									</div>
-								</div>
-								<div class="order__input order__input-amount">
-									<label for="number-children" class="order__label">Дети</label>
-									<p class="order__sublabel">младше 12 лет</p>
-									<div class="order__input-counter">
-										<input type="number" inputmode="numeric" name="number-children" id="number-children" placeholder="Колличество детей" min="1" />
-										<button type="button" class="order__input-plus"></button>
-										<button type="button" class="order__input-minus"></button>
-									</div>
-								</div>
-								<div class="order__input order__input-amount">
-									<label for="number-babies" class="order__label">Младенцы</label>
-									<p class="order__sublabel">младше 1 года</p>
-									<div class="order__input-counter">
-										<input type="number" inputmode="numeric" name="number-babies" id="number-babies" placeholder="Колличество младенцев" min="1" />
-										<button type="button" class="order__input-plus"></button>
-										<button type="button" class="order__input-minus"></button>
-									</div>
-								</div>
-								<label class="order__back">
-									<span>Обратный трансфер</span>
-									<input type="checkbox" name="back" id="back" value="back" />
-									<span class="order__back-checkmark"></span>
-								</label>
-								<div class="order__back-subblock">
-									<div class="order__input order__input-date">
-										<label for="arrival-date-back" class="order__label">Дата подачи такси</label>
-										<input type="text" name="arrival-date-back" id="arrival-date-back" placeholder="Дата подачи такси" autocomplete="off" readonly />
-									</div>
-									<div class="order__input order__input-time">
-										<label for="arrival-time-back" class="order__label">Время подачи такси</label>
-										<input type="text" name="arrival-time-back" id="arrival-time-back" placeholder="Время подачи такси" autocomplete="off" readonly />
-									</div>
-									<div class="order__textarea">
-										<div class="order__label">Комментарий к заказу</div>
-										<textarea
-											name="comments"
-											id="comments"
-											placeholder="Ваши комментарии и пожелания: Детское кресло, встреча с табличкой..."
-											autocomplete="off"></textarea>
-									</div>
-								</div>
-								<div class="order__price">Исходя из Ваших данных, сумма поездки состаляет: <span>1389 ₽</span></div>
-							</div>
-							<div class="order__footer">
-								<div class="order__steps">Все данные заполнены, осталось нажать кнопку!</div>
-								<button class="order__btn order__btn-back" type="button">
-									<span class="order__btn-text"> Вернутся к шагу 2 </span>
-									<span class="order__btn-arr"><img src="./img/icons/arrow-btn-back.svg" alt="arrow-icon" loading="lazy" /></span>
-								</button>
-								<button class="order__btn">
-									<span class="order__btn-text"> Заказать такси </span>
-									<span class="order__btn-arr"><img src="./img/icons/arrow-btn.svg" alt="arrow-icon" loading="lazy" /></span>
-								</button>
-							</div>
-						</div>
-					</div>
-				</form>
-				<div class="order__success">
-					<h2 class="order__title">Заявка принята!</h2>
-					<p class="order__subtitle">Ваша заявка принята, ожидайте звонка от оператора</p>
-					<div class="order__success-img">
-						<img class="order__success-img-front" src="./img/success/front.png" alt="front-car" loading="lazy" />
-						<img class="order__success-img-back" src="./img/success/back.png" alt="back-car" loading="lazy" />
+			<section class="success" data-success="block">
+				<div class="success__wrap order__success">
+					<h2 class="success__title">Заявка принята!</h2>
+					<p class="success__subtitle">Ваша заявка принята, ожидайте звонка от оператора</p>
+					<div class="success__img">
+						<img class="success__img-front" src="./img/success/front.png" alt="front-car" />
+						<img class="success__img-back" src="./img/success/back.png" alt="back-car" />
 					</div>
 				</div>
-				<div class="order__overlay"></div>
+				<div class="success__overlay"></div>
 			</section>
 		</main>
 		<footer class="footer">
@@ -670,10 +748,19 @@
 					<a href="#types">Классы такси</a>
 					<a href="#feedback">Отзывы</a>
 				</nav>
-				<a href="tel:+79787777272" class="footer__call">
-					<img src="./img/icons/call-icon-dark.png" alt="call-icon" loading="lazy" />
-					<span>+7(978) 653 59 37</span>
-				</a>
+				<div class="footer__contacts">
+					<a href="tel:+79787777272" class="footer__call">
+						<img class="lazyload" data-src="./img/icons/call-icon-dark.png" alt="call-icon" />
+						<span>+7(978) 653 59 37</span>
+					</a>
+					<div class="footer__addr" itemscope itemtype="http://schema.org/Organization">
+						<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+							<span itemprop="streetAddress">площадь Воссоединения 1,</span>
+							<br />
+							<span itemprop="addressLocality">г. Симферополь</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</footer>
 	</body>

@@ -39,6 +39,17 @@
 			font-size: 30px;
 		}
 	}
+	&__subtitle {
+		text-align: center;
+		margin-top: 15px;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 120.7%;
+		color: #ffffff;
+		@include to(992px) {
+			margin-top: 10px;
+		}
+	}
 	&__slider {
 		&-wrap {
 			position: relative;

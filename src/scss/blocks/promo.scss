@@ -1,6 +1,7 @@
 .promo {
 	overflow: hidden;
-	padding-top: 100px;
+	padding-top: 170px;
+	padding-bottom: 50px;
 	background-color: $yel;
 	position: relative;
 	z-index: 1;
@@ -8,13 +9,13 @@
 		overflow: initial;
 	}
 	@include to(1200px) {
-		padding-top: 75px;
+		padding-top: 140px;
 	}
 	@include to(992px) {
-		padding-top: 50px;
+		padding-top: 110px;
 	}
 	@include to(576px) {
-		padding-top: 25px;
+		padding-top: 90px;
 	}
 	&::after {
 		content: "";
@@ -89,26 +90,34 @@
 			}
 		}
 	}
-	&__btn {
-		margin-top: 35px;
-		@include btn;
+	&__subtitle {
+		width: 100%;
+		max-width: 570px;
+		margin-top: 20px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 115.42%;
+		color: #ffffff;
 		@include to(992px) {
-			margin-top: 25px;
+			margin-top: 15px;
+			font-size: 14px;
+			max-width: 500px;
+		}
+		@include to(576px) {
+			font-size: 12px;
 		}
 	}
 	&__img {
 		position: absolute;
-		top: 100px;
+		top: 200px;
 		right: 0;
 		z-index: 1;
 		padding-right: 3%;
 		@include to(1750px) {
 			padding-right: 30px;
-			right: -90px;
 		}
 		@include to(1440px) {
 			padding-right: 0;
-			right: -200px;
 		}
 		@include to(1300px) {
 			margin-left: auto;
@@ -166,6 +175,10 @@
 		}
 		&-front {
 			img {
+				@include to(1750px) {
+					width: 620px;
+					height: 400px;
+				}
 				@include to(768px) {
 					width: 620px;
 					height: 400px;

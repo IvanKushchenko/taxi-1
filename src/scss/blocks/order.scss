@@ -1,57 +1,12 @@
 .order {
-	padding: 20px;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 100;
-	display: flex;
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	transition: all 0.3s;
-	@include to(576px) {
-		padding: 0;
-	}
-	&--opened {
-		opacity: 1;
-		visibility: visible;
-		pointer-events: all;
-		transition: all 0.3s;
-	}
+	padding-top: 50px;
+	border-top: 2px solid #ffffff;
 	&__form {
+		@include wrap;
 		display: flex;
 		flex-flow: column nowrap;
-		overflow-y: auto;
-		padding: 30px 0;
-		margin: auto;
-		height: auto;
-		max-height: calc(100% - 60px);
-		width: 100%;
-		max-width: 400px;
-		z-index: 1;
-		background: #edb810;
-		border-radius: 5px;
-		transform: translateY(-100%);
-		transition: transform 0.3s;
-		@include to(1300px) {
-			min-height: unset;
-		}
-		.order--opened & {
-			transform: translateY(0%);
-			transition: transform 0.3s;
-		}
 		.order--successed & {
 			display: none;
-		}
-		@include to(576px) {
-			border-radius: 0;
-			max-height: calc(100% - 40px);
-			max-width: calc(100% - 20px);
-			width: 100%;
 		}
 		&[data-type="intercity"],
 		&[data-type="railway"] {
@@ -80,110 +35,56 @@
 			animation: fadeInRight 0.3s;
 		}
 	}
-	&__header,
-	&__fields,
+	&__header {
+		margin: 0 auto;
+	}
+	&__fields {
+		width: 100%;
+		max-width: 960px;
+		margin: 40px auto 0 auto;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 24px 30px;
+		@include to(992px) {
+			gap: 20px;
+		}
+		@include to(768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: 15px;
+		}
+		@include to(576px) {
+			grid-template-columns: 1fr;
+		}
+	}
 	&__footer {
 		display: flex;
 		flex-flow: column nowrap;
-	}
-	&__footer {
-		margin-top: auto;
+		margin: 40px auto 0 auto;
+		@include to(992px) {
+			margin-top: 20px;
+		}
+		@include to(576px) {
+			width: 100%;
+		}
 	}
 	&__title {
 		font-weight: 900;
 		font-size: 30px;
 		line-height: 120.7%;
 		color: #ffffff;
-		margin: 0 30px 35px 30px;
 		padding-bottom: 5px;
 		border-bottom: 2px dashed #ffffff;
-		@include to(576px) {
-			margin: 0 15px 25px 15px;
-		}
-	}
-	&__types {
-		margin-bottom: 25px;
-		display: flex;
-		flex-flow: column nowrap;
-		.order__label {
-			margin: 0 30px 15px 30px;
-			@include to(576px) {
-				margin: 0 15px 15px 15px;
-			}
-		}
-		&-inputs {
-			display: flex;
-			flex-flow: row nowrap;
-			align-items: center;
-			justify-content: space-between;
-			padding: 15px 30px;
-			background-color: #393939;
-			@include to(576px) {
-				padding: 15px;
-			}
-		}
-		&-radio {
-			cursor: pointer;
-			flex: 0 1 auto;
-			position: relative;
-			font-weight: bold;
-			font-size: 10px;
-			line-height: 115.2%;
-			color: #ffffff;
-			&:hover {
-				color: #edb810;
-				transition: color 0.3s;
-			}
-		}
-		&-input {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			visibility: hidden;
-			&:checked {
-				~ .order__types-checkmark {
-					color: #edb810;
-					transition: color 0.3s;
-					&::before {
-						width: calc(100% - 18px);
-						transition: width 0.3s;
-					}
-				}
-			}
-		}
-		&-checkmark {
-			width: 100%;
-			height: 100%;
-			transition: color 0.3s;
-			position: relative;
-			&::before {
-				content: "";
-				position: absolute;
-				bottom: -5px;
-				left: 50%;
-				transform: translateX(-50%);
-				border-bottom: 2px dashed #edb810;
-				width: 0;
-				transition: width 0.3s;
-			}
-		}
 	}
 	&__select {
 		display: flex;
 		flex-flow: column nowrap;
-		margin: 15px 30px;
-		@include to(576px) {
-			margin: 0 15px 10px 15px;
-		}
 		&-departure {
 			display: none;
 		}
 		.select2 {
+			width: auto !important;
 			.select2-selection__rendered {
 				padding: 15px 0 15px 15px;
-				margin-right: 35px;
 				height: 100%;
 				display: flex;
 				align-items: center;
@@ -191,6 +92,9 @@
 				font-size: 16px;
 				line-height: 115.2%;
 				color: #393939;
+				@include to(992px) {
+					font-size: 14px;
+				}
 			}
 			.select2-selection {
 				min-height: 46px;
@@ -200,13 +104,24 @@
 				border-radius: 5px;
 			}
 			.select2-selection__arrow {
-				right: 12px;
+				border-radius: inherit;
+				right: 0;
 				top: 50%;
 				transform: translateY(-50%);
-				height: 15px;
-				width: 15px;
-				background: url($imgPath + "icons/arr-down.svg") center center / cover no-repeat;
-				transition: transform 0.3s;
+				height: calc(100% - 2px);
+				width: 45px;
+				background-color: #fff;
+				&::after {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					background: url($imgPath + "icons/arr-down.svg") center center / 15px 15px no-repeat;
+					width: 15px;
+					height: 15px;
+					transition: transform 0.3s;
+				}
 				b {
 					display: none;
 				}
@@ -214,8 +129,10 @@
 
 			&.select2-container--open {
 				.select2-selection__arrow {
-					transform: translateY(-50%) rotate(180deg);
-					transition: transform 0.3s;
+					&::after {
+						transform: translate(-50%, -50%) rotate(180deg);
+						transition: transform 0.3s;
+					}
 				}
 			}
 		}
@@ -235,14 +152,15 @@
 		color: #ffffff;
 	}
 	&__price {
+		text-align: center;
+		margin-bottom: 30px;
 		display: none;
-		margin: 15px 30px 15px 30px;
 		font-weight: normal;
 		font-size: 14px;
 		line-height: 115.2%;
 		color: #393939;
-		@include to(576px) {
-			margin: 15px;
+		@include to(992px) {
+			margin-bottom: 15px;
 		}
 		&--showed {
 			display: block;
@@ -253,13 +171,10 @@
 		}
 	}
 	&__input {
+		margin-top: auto;
 		position: relative;
 		display: flex;
 		flex-flow: column nowrap;
-		margin: 15px 30px;
-		@include to(576px) {
-			margin: 15px;
-		}
 		input {
 			height: 100%;
 			width: 100%;
@@ -334,16 +249,16 @@
 		}
 	}
 	&__back {
+		grid-column: span 3;
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
-		margin: 15px 30px;
 		font-weight: bold;
 		font-size: 14px;
 		line-height: 115.2%;
 		color: #393939;
-		@include to(576px) {
-			margin: 15px;
+		@include to(768px) {
+			grid-column: initial;
 		}
 		input {
 			position: absolute;
@@ -373,9 +288,24 @@
 		}
 		&-subblock {
 			display: none;
-			flex-flow: column nowrap;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 24px 30px;
+			grid-column: span 3;
+			grid-row: 3 / 4;
+			@include to(768px) {
+				grid-template-columns: repeat(2, 1fr);
+				grid-row: initial;
+				grid-column: span 2;
+			}
+			@include to(576px) {
+				grid-column: initial;
+				grid-template-columns: 1fr;
+			}
+			.order__input {
+				margin: 0 0 auto 0;
+			}
 			&--showed {
-				display: flex;
+				display: grid;
 				animation: fadeInUp 0.3s;
 			}
 		}
@@ -383,10 +313,6 @@
 	&__textarea {
 		display: flex;
 		flex-flow: column nowrap;
-		margin: 15px 30px;
-		@include to(576px) {
-			margin: 15px;
-		}
 		textarea {
 			resize: none;
 			min-height: 100px;
@@ -405,19 +331,34 @@
 		}
 	}
 	&__steps {
-		margin: auto 30px 15px 30px;
+		text-align: center;
 		font-weight: bold;
 		font-size: 12px;
 		line-height: 115.2%;
 		color: #ffffff;
+	}
+	&__btns {
+		display: flex;
+		flex-flow: row nowrap;
+		margin: 15px auto 0 auto;
+		@include to(768px) {
+			flex-flow: column nowrap;
+		}
 		@include to(576px) {
-			margin: auto 15px 15px 15px;
+			width: 100%;
 		}
 	}
 	&__btn {
 		@include btn;
-		margin: 15px auto 0 auto;
-		max-width: calc(100% - 60px);
+		margin: 0 15px;
+		@include to(768px) {
+			margin: 0 auto;
+		}
+		&:not(:last-child) {
+			@include to(768px) {
+				margin-bottom: 15px;
+			}
+		}
 		&-back {
 			background-color: transparent;
 			border: 2px solid #181818;
@@ -426,72 +367,6 @@
 			}
 			.order__btn-arr {
 				background-color: #fff;
-			}
-		}
-		@include to(576px) {
-			max-width: 320px;
-		}
-		@include to(400px) {
-			max-width: calc(100% - 30px);
-		}
-	}
-	&__success {
-		display: none;
-		position: relative;
-		flex-flow: column nowrap;
-		padding: 30px 0;
-		margin: auto;
-		height: auto;
-		width: 100%;
-		max-width: 400px;
-		z-index: 1;
-		background: #edb810;
-		border-radius: 5px;
-		.order--successed & {
-			display: block;
-			animation: fadeInUp 0.3s;
-		}
-		@include to(576px) {
-			max-width: 350px;
-		}
-		&::before {
-			content: "";
-			width: 174px;
-			height: 279px;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			background: url($imgPath + "success/stars-1.svg") center center / contain no-repeat;
-			z-index: -1;
-		}
-		&::after {
-			content: "";
-			width: 200px;
-			height: 343px;
-			position: absolute;
-			bottom: 0;
-			right: 0;
-			background: url($imgPath + "success/stars-2.svg") center center / contain no-repeat;
-			z-index: -1;
-		}
-		.order__title {
-			text-align: center;
-		}
-		&-img {
-			margin-top: 20px;
-			position: relative;
-			z-index: 1;
-			&-back {
-				position: absolute;
-				top: 0;
-				right: 0;
-				z-index: -1;
-			}
-			&-front {
-				margin: 0 auto;
-			}
-			img {
-				display: block;
 			}
 		}
 	}
@@ -512,28 +387,6 @@
 			color: red;
 		}
 	}
-	&__overlay {
-		display: block;
-		position: fixed;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(49, 57, 60, 0.65);
-		z-index: -1;
-		opacity: 0;
-		visibility: hidden;
-		pointer-events: none;
-		transition: all 0.3s;
-		.order--opened & {
-			opacity: 1;
-			visibility: visible;
-			pointer-events: all;
-			transition: all 0.3s;
-		}
-	}
 }
 
 .select2-dropdown {
@@ -546,6 +399,9 @@
 		font-size: 14px;
 		line-height: 115.2%;
 		color: #393939;
+		@include to(992px) {
+			font-size: 12px;
+		}
 	}
 	.select2-results__option.select2-results__option--selectable.select2-results__option--highlighted {
 		background-color: #faed00;
